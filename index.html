@@ -1,14 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CoreDeft ICT Private Program</title>
+	<title>CoreDeft ICT Private Program</title>
+    <link rel="Shortcut Icon"
+    type="image/png"
+    href="1678550081238.png">
+	<style>
+		body {
+			background-color: #ffffff;
+			font-family: Arial, Helvetica, sans-serif;
+			color: blue;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			font-size: 48px;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		.container {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		.countdown {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 50px;
+		}
+
+		.countdown-item {
+			margin-right: 20px;
+			color: #ffffff;
+			background-color: blue;
+			padding: 20px;
+			border-radius: 10px;
+			font-size: 60px;
+			line-height: 1;
+			min-width: 100px;
+			text-align: center;
+			box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+		}
+
+		.countdown-separator {
+			font-size: 60px;
+			color: #0071c5;
+			margin-right: 20px;
+			margin-left: 20px;
+		}
+
+		@media (max-width: 768px) {
+			h1 {
+				font-size: 36px;
+			}
+
+			.countdown-item {
+				padding: 10px;
+				font-size: 40px;
+				min-width: 70px;
+			}
+
+			.countdown-separator {
+				font-size: 40px;
+			}
+		}
+	</style>
 </head>
 <body>
-<div style="text-align: center;">
-<iframe src="https://script.google.com/macros/s/AKfycbw5zbSM_iUMZOO33iXEmZck2jxXBKI-Z9bABg7B9TE1iGf59oMYoZn8oqcBrgt9T95R/exec" style="border: none; justify-content: center;"width="1080px" height="500px" scrolling: "no">
-</div>
-</iframe>
+	<h1>Results will be published in:</h1>
+
+	<div class="container">
+		<div class="countdown" id="countdown"></div>
+	</div>
+
+	<script>
+		// Set the date we're counting down to
+		var countDownDate = new Date("2023-03-12T20:00:00+06:00").getTime();
+
+		// Update the countdown every 1 second
+		var x = setInterval(function() {
+
+		  // Get the current date and time
+		  var now = new Date().getTime();
+
+		  // Find the distance between now and the countdown date
+		  var distance = countDownDate - now;
+
+		  // Calculate the days, hours, minutes and seconds left
+		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		  // Display the countdown
+		  document.getElementById("countdown").innerHTML = 
+		  	'<div class="countdown-item">' + days + '<br><span>Days</span></div>' +
+		  	'<div class="countdown-separator">:</div>' +
+		  	'<div class="countdown-item">' + hours + '<br><span>Hours</span></div>' +
+		  	'<div class="countdown-separator">:</div>' +
+		  	'<div class="countdown-item">' + minutes + '<br><span>Minutes</span></div>' +
+'<div class="countdown-separator">:</div>' +
+'<div class="countdown-item">' + seconds + '<br><span>Seconds</span></div>'; if (distance < 0) {
+	    clearInterval(x);
+	    document.getElementById("countdown").innerHTML = "<p>Results have been published!</p>";
+	  }
+	}, 1000);
+</script>
 </body>
 </html>

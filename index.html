@@ -1,81 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CoreDeft ICT Private Program</title>
     <link rel="Shortcut Icon"
     type="image/png"
     href="1678550081238.png">
+	<title>CoreDeft ICT Private Program</title>
 	<style>
-		body {
-			background-color: #ffffff;
-			font-family: Arial, Helvetica, sans-serif;
-			color: blue;
-		}
-
-		h1 {
-			text-align: center;
-			margin-top: 50px;
-			font-size: 48px;
-			font-weight: bold;
-			text-transform: uppercase;
-		}
-
 		.container {
 			text-align: center;
-			margin-top: 50px;
-		}
-
-		.countdown {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-top: 50px;
-		}
-
-		.countdown-item {
-			margin-right: 20px;
-			color: #ffffff;
-			background-color: blue;
-			padding: 20px;
-			border-radius: 10px;
-			font-size: 60px;
-			line-height: 1;
-			min-width: 100px;
-			text-align: center;
-			box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-		}
-
-		.countdown-separator {
-			font-size: 60px;
-			color: #0071c5;
-			margin-right: 20px;
-			margin-left: 20px;
-		}
-
-		@media (max-width: 768px) {
-			h1 {
-				font-size: 36px;
-			}
-
-			.countdown-item {
-				padding: 10px;
-				font-size: 40px;
-				min-width: 70px;
-			}
-
-			.countdown-separator {
-				font-size: 40px;
-			}
+			font-size: 30px;
+			margin-top: 100px;
 		}
 	</style>
 </head>
 <body>
-	<h1>Results will be published in:</h1>
-
 	<div class="container">
-		<div class="countdown" id="countdown"></div>
+		<p>Results will be published in:</p>
+		<p id="countdown"></p>
 	</div>
-
+	
 	<script>
 		// Set the date we're counting down to
 		var countDownDate = new Date("2023-03-12T20:00:00+06:00").getTime();
@@ -96,18 +39,15 @@
 		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 		  // Display the countdown
-		  document.getElementById("countdown").innerHTML = 
-		  	'<div class="countdown-item">' + days + '<br><span>Days</span></div>' +
-		  	'<div class="countdown-separator">:</div>' +
-		  	'<div class="countdown-item">' + hours + '<br><span>Hours</span></div>' +
-		  	'<div class="countdown-separator">:</div>' +
-		  	'<div class="countdown-item">' + minutes + '<br><span>Minutes</span></div>' +
-'<div class="countdown-separator">:</div>' +
-'<div class="countdown-item">' + seconds + '<br><span>Seconds</span></div>'; if (distance < 0) {
-	    clearInterval(x);
-	    document.getElementById("countdown").innerHTML = "<p>Results have been published!</p>";
-	  }
-	}, 1000);
-</script>
+		  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+		  + minutes + "m " + seconds + "s ";
+
+		  // If the countdown is finished, show the message
+		  if (distance < 0) {
+		    clearInterval(x);
+		    document.getElementById("countdown").innerHTML = "Results are out!";
+		  }
+		}, 1000);
+	</script>
 </body>
 </html>
